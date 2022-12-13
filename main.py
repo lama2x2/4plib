@@ -42,6 +42,7 @@ class MyWidget(QMainWindow):
     def keyPressEvent(self, e):
         if e.key() == 16777220:
             self.flagger()
+            self.get_list()
 
     def flagger(self):
         self.fl = True
