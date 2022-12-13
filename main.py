@@ -223,13 +223,13 @@ class MyWidget(QMainWindow):
         if bpin == 'None' or bpin == '':
             bpin = '*к этой книге нет заметки*'
         if self.fl:
-            self.iw = Window2(bname, bauth, bimg, bpin)
+            self.iw = Window2(bname, bauth, bimg, bpin, self)
             self.iw.show()
             self.fl = False
 
 
 class Window2(QWidget):
-    def __init__(self, b1, b2, b3, b4):
+    def __init__(self, b1, b2, b3, b4, mw):
         super(Window2, self).__init__()
         self.setGeometry(650, 100, 600, 930)
         self.setWindowTitle(b1)
@@ -260,6 +260,8 @@ class Window2(QWidget):
         self.image = QLabel(self)
         self.image.move(20, 175)
         self.image.setPixmap(self.p)
+
+        mw.flagger()
 
 
 if __name__ == '__main__':
