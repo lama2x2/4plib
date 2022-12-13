@@ -33,6 +33,11 @@ class MyWidget(QMainWindow):
         self.delbb.clicked.connect(self.delblist)
         self.pl.clicked.connect(self.plbtocat)
         self.min.clicked.connect(self.minbfromcat)
+        self.px = QPixmap('data/contacts.png')
+        self.conts = self.px.scaled(260, 260, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.setGeometry(380, 300, 300, 150)
+        self.image.setPixmap(self.conts)
 
     def keyPressEvent(self, e):
         if e.key() == 16777220:
