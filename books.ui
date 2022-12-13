@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>4plib</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>gg.ico</normaloff>gg.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QComboBox" name="filt">
     <property name="geometry">

@@ -124,8 +124,14 @@ class MyWidget(QMainWindow):
         t = item.text()
         qstn = QMessageBox.question(self, 'Удаление книги', 'Вы действительно хотите удалить эту книгу?')
         if qstn == 16384 and self.fl:
+            id = self.cur.execute(f"""SELECT * FROM books WHERE name = '{t}'""").fetchall()
             self.cur.execute(f"""DELETE FROM books
-            WHERE name = '{t}'""")
+                        WHERE name = '{t}'""")
+            tables = self.cur.execute("""SELECT * FROM sqlite_master WHERE type='table'""").fetchall()
+            for i in tables:
+                if i[1] != 'books' and i[1] != 'sqlite_sequence':
+                    self.cur.execute(f"""DELETE FROM {i[1]}
+                                WHERE book_id = {id[0][0]}""")
             self.con.commit()
             self.list1.clear()
             self.list1.close()
@@ -223,13 +229,13 @@ class MyWidget(QMainWindow):
         if bpin == 'None' or bpin == '':
             bpin = '*к этой книге нет заметки*'
         if self.fl:
-            self.iw = Window2(bname, bauth, bimg, bpin, self)
+            self.iw = Window2(bname, bauth, bimg, bpin)
             self.iw.show()
             self.fl = False
 
 
 class Window2(QWidget):
-    def __init__(self, b1, b2, b3, b4, mw):
+    def __init__(self, b1, b2, b3, b4):
         super(Window2, self).__init__()
         self.setGeometry(650, 100, 600, 930)
         self.setWindowTitle(b1)
@@ -260,8 +266,6 @@ class Window2(QWidget):
         self.image = QLabel(self)
         self.image.move(20, 175)
         self.image.setPixmap(self.p)
-
-        mw.flagger()
 
 
 if __name__ == '__main__':
