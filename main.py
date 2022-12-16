@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QLabel, QFileDia
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 import sqlite3
+import random
 
 
 class MyWidget(QMainWindow):
@@ -230,7 +231,22 @@ class MyWidget(QMainWindow):
         if bpin == 'None' or bpin == '':
             bpin = '*к этой книге нет заметки*'
         if self.fl:
-            self.iw = Window2(bname, bauth, bimg, bpin)
+            z = random.randint(1, 7)
+            if z == 1:
+                self.iw = Window2(bname, bauth, bimg, bpin)
+            elif z == 2:
+                self.iw = Window3(bname, bauth, bimg, bpin)
+            elif z == 3:
+                self.iw = Window4(bname, bauth, bimg, bpin)
+            elif z == 4:
+                self.iw = Window5(bname, bauth, bimg, bpin)
+            elif z == 5:
+                self.iw = Window6(bname, bauth, bimg, bpin)
+            elif z == 6:
+                self.iw = Window7(bname, bauth, bimg, bpin)
+            elif z == 7:
+                self.iw = Window8(bname, bauth, bimg, bpin)
+
             self.iw.show()
             self.fl = False
 
@@ -238,6 +254,210 @@ class MyWidget(QMainWindow):
 class Window2(QWidget):
     def __init__(self, b1, b2, b3, b4):
         super(Window2, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window3(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window3, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window4(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window4, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window5(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window5, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window6(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window6, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window7(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window7, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window8(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window8, self).__init__()
         self.setGeometry(650, 100, 600, 930)
         self.setWindowTitle(b1)
 
