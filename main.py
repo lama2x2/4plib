@@ -231,7 +231,7 @@ class MyWidget(QMainWindow):
         if bpin == 'None' or bpin == '':
             bpin = '*к этой книге нет заметки*'
         if self.fl:
-            z = random.randint(1, 7)
+            z = random.randint(1, 8)
             if z == 1:
                 self.iw = Window2(bname, bauth, bimg, bpin)
             elif z == 2:
@@ -246,7 +246,8 @@ class MyWidget(QMainWindow):
                 self.iw = Window7(bname, bauth, bimg, bpin)
             elif z == 7:
                 self.iw = Window8(bname, bauth, bimg, bpin)
-
+            elif z == 8:
+                self.iw = Window9(bname, bauth, bimg, bpin)
             self.iw.show()
             self.fl = False
 
@@ -458,6 +459,40 @@ class Window7(QWidget):
 class Window8(QWidget):
     def __init__(self, b1, b2, b3, b4):
         super(Window8, self).__init__()
+        self.setGeometry(650, 100, 600, 930)
+        self.setWindowTitle(b1)
+
+        self.n = QLabel(self)
+        self.n.setText(b1)
+        self.f = self.n.font()
+        self.f.setPointSize(34)
+        self.n.setFont(self.f)
+        self.n.setGeometry(20, 0, 600, 80)
+
+        self.a = QLabel(self)
+        self.a.setText(b2)
+        self.f1 = self.a.font()
+        self.f1.setPointSize(16)
+        self.a.setFont(self.f1)
+        self.a.setGeometry(20, 70, 600, 65)
+
+        self.p = QLabel(self)
+        self.p.setText(b4)
+        self.f2 = self.p.font()
+        self.f2.setPointSize(12)
+        self.p.setFont(self.f2)
+        self.p.setGeometry(20, 115, 600, 65)
+
+        self.px = QPixmap(b3)
+        self.p = self.px.scaled(700, 700, Qt.KeepAspectRatio, Qt.FastTransformation)
+        self.image = QLabel(self)
+        self.image.move(20, 175)
+        self.image.setPixmap(self.p)
+
+
+class Window9(QWidget):
+    def __init__(self, b1, b2, b3, b4):
+        super(Window9, self).__init__()
         self.setGeometry(650, 100, 600, 930)
         self.setWindowTitle(b1)
 
